@@ -1,0 +1,669 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+:root {
+    --bg-color: #fff;
+    --text-color: #221314;
+    --second-color: #5a7184;
+    --main-color: #6e54fa;
+    --big-font: 6rem;
+    --h2-font: 3rem;
+    --p-font: 1.1rem;
+}
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 30px 18%;
+    transition: ease 0.4s;
+}
+
+.gamesDropdown {
+    position: relative;
+}
+.gamesDropdown > h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 0 20px;
+    user-select: none;
+}
+.gamesDropdown h3 i {
+    font-size: 14px;
+    margin-top: 2px;
+}
+.gameslist {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: -10%;
+    width: max-content;
+    border-radius: 5px;
+    flex-direction: column;
+    padding: 5px 0;
+    gap: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.gameslist.active {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.719);
+}
+.gamesDropdown ul li {
+    padding: 2px 10px;
+    transition: all 0.15s linear;
+    color: rgb(73, 15, 15);
+}
+
+.gamesDropdown ul li:hover {
+    cursor: pointer;
+    color: white;
+    background-color: maroon;
+}
+.logo {
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--bg-color);
+}
+.navbar {
+    display: flex;
+}
+.navbar a {
+    color: var(--bg-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: 4px;
+    transition: ease 0.4s;
+}
+.navbar a:hover {
+    background: var(--bg-color);
+    color: var(--text-color);
+    box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
+    border-radius: 4px;
+}
+#menu-icon {
+    color: var(--bg-color);
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+
+section {
+    padding: 80px 18%;
+}
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../images/Games_Strategy.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+.card-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.493);
+    background-blend-mode: color;
+    background-size: cover;
+}
+
+.home-text h1 {
+    font-size: var(--big-font);
+    line-height: 1.2;
+    color: var(--bg-color);
+    font-family: "Paytone One", sans-serif;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    word-break: break-word;
+}
+.home-text p {
+    color: #f8f6f5;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 38px;
+    margin-bottom: 50px;
+}
+.home-btn {
+    display: inline-block;
+    font-size: 16px;
+    padding: 15px 30px;
+    background: #f0b904dc;
+    color: white;
+    border-radius: 4px;
+    transition: ease 0.4s;
+    font-weight: bold;
+}
+.home-btn:hover {
+    background: var(--bg-color);
+    transform: scale(1.1);
+}
+header.sticky {
+    background: var(--bg-color);
+    padding: 10px 18%;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+.sticky .logo {
+    color: var(--text-color);
+}
+.sticky .navbar a {
+    color: var(--text-color);
+}
+
+.text h2 {
+    font-size: var(--h2-font);
+    line-height: 1.1;
+}
+.row-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    grid-gap: 2rem;
+    align-items: center;
+    text-align: center;
+    margin-top: 5rem;
+}
+.container-box {
+    background: var(--bg-color);
+    border: 1px solid #f0eded;
+    padding: 50px 10px;
+    border-radius: 4px;
+    transition: all 1s ease 0s;
+    cursor: pointer;
+}
+.container-img img {
+    height: 85px;
+    width: 85px;
+    padding: 15px;
+    background: var(--bg-color);
+    box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.container-box h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.container-box p {
+    font-size: 15px;
+    color: var(--second-color);
+}
+.container-box:hover {
+    box-shadow: 5px 30px 56.1276px rgb(55 55 55 / 12%);
+    border: 1px solid transparent;
+    transform: translateY(-25px);
+}
+
+.title {
+    text-align: center;
+}
+.title h2 {
+    font-size: var(--h2-font);
+    line-height: 1.2;
+    color: orange;
+}
+.package-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    grid-gap: 2rem;
+    align-items: center;
+    margin-top: 5rem;
+}
+.thum {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    will-change: filter;
+    cursor: pointer;
+}
+.thum img {
+    width: 100%;
+    height: auto;
+}
+.thum h3 {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: right;
+    color: var(--bg-color);
+    top: 36px;
+    right: 40px;
+}
+
+.location h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.location p {
+    font-size: 15px;
+    color: var(--second-color);
+}
+.thum:hover {
+    filter: brightness(100%) hue-rotate(45deg);
+    transform: scale(1.04);
+}
+
+.games-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, auto));
+    grid-gap: 2rem;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.games {
+    background: #232526;
+    background: -webkit-linear-gradient(to right, #414345, #232526);
+    background: linear-gradient(to right, #414345, #232526);
+}
+.col-content {
+    position: relative;
+}
+.col-content img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: brightness(80%);
+    transition: all 0.3s cubic-bezier(0.495, 0.05, 0.55, 0.95);
+    will-change: filter;
+}
+.col-content h5 {
+    position: absolute;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--bg-color);
+    left: 15px;
+    bottom: 60px;
+}
+.col-content p {
+    position: absolute;
+    font-size: 15px;
+    color: var(--bg-color);
+    left: 15px;
+    bottom: 30px;
+    letter-spacing: 2px;
+}
+.col-content img:hover {
+    filter: brightness(100%) hue-rotate(45deg);
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+.newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 3rem;
+}
+.news-text h2 {
+    font-size: var(--h2-font);
+    margin-bottom: 5px;
+}
+.news-text p {
+    font-size: var(--p-font);
+    color: var(--second-color);
+    line-height: 30px;
+}
+.newsletter form {
+    max-width: 100%;
+    width: 450px;
+    position: relative;
+}
+.newsletter form input:first-child {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 150px 20px 30px;
+    box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+.newsletter form input:last-child {
+    display: inline-block;
+    position: absolute;
+    outline: none;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 15px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+}
+
+#contact {
+    background: black;
+}
+.main {
+    justify-content: space-evenly;
+    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer {
+    padding: 20px 0;
+}
+.list {
+    width: 25%;
+}
+.list h4 {
+    font-size: 21px;
+    color: orange;
+    margin-bottom: 30px;
+    position: relative;
+}
+.list h4::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 60px;
+    left: 0;
+    bottom: -10px;
+    background: orange;
+}
+.list ul li:not(last-child) {
+    margin-bottom: 16px;
+}
+.list ul li {
+    color: orange;
+    font-size: var(--p-font);
+    display: block;
+    transition: 0.3s;
+}
+.list ul li:hover {
+    color: var(--bg-color);
+    transform: translateX(14px);
+}
+.list .social a {
+    height: 40px;
+    width: 40px;
+    background: var(--bg-color);
+    color: orange;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    border-radius: 15px;
+    transition: 0.3s;
+    margin-right: 10px;
+}
+.list .social a:hover {
+    transform: scale(1.3);
+}
+.end-text {
+    text-align: center;
+    padding-top: 90px;
+}
+.end-text p {
+    color: orange;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    max-width: 450px;
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    height: 520px;
+    width: 450px;
+    border-radius: 30px;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 27%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    margin-bottom: 50px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.GameInfo {
+    max-width: 80%;
+    margin: auto;
+    color: orange;
+    font-size: 20px;
+    margin-bottom: 100px;
+    font-size: 24px;
+}
+
+.GameInfo p {
+    margin: 15px;
+}
+
+.GameReq {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: orange;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.wrapper {
+    background: #232526;
+    background: -webkit-linear-gradient(to left, #414345, #232526);
+    background: linear-gradient(to left, #414345, #232526);
+    padding-top: 50px;
+}
+
+.downloadBtn {
+    display: flex;
+    width: max-content;
+    margin: 100px auto 100px auto;
+}
+
+.downloadBtn button {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    padding: 10px 50px;
+    border: none;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.2s;
+    background-color: orange;
+}
+
+.downloadBtn button:hover {
+    color: #255784;
+    background: #f3d421;
+    box-shadow: 0 0 10px #f3d421, 0 0 40px #f3d421, 0 0 80px #f3d421;
+    cursor: pointer;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1400px) {
+    header {
+        padding: 17px 3%;
+        transition: 0.2s;
+    }
+    header.sticky {
+        padding: 10px 3%;
+        transition: 0.2s;
+    }
+    section {
+        padding: 80px 3%;
+        transition: 0.2s;
+    }
+    :root {
+        --big-font: 4.5rem;
+        --h2-font: 2.3rem;
+        --p-font: 1rem;
+        transition: 0.2s;
+    }
+}
+
+@media (max-width: 1040px) {
+    #menu-icon {
+        display: block;
+    }
+    .stick #menu-icon {
+        color: var(--text-color);
+    }
+    .home {
+        height: 88vh;
+    }
+    .navbar {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 270px;
+        height: 120vh;
+        background: rgba(218, 143, 3, 0.678);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 30px;
+        transition: 0.5s all;
+        backdrop-filter: blur(5px);
+    }
+    .navbar a {
+        display: block;
+        margin: 1.2rem 0;
+    }
+    .sticky .navbar a {
+        color: var(--bg-color);
+    }
+    .navbar a:hover {
+        color: maroon;
+    }
+    .open {
+        right: 0;
+    }
+    .list {
+        width: 50%;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .list {
+        width: 100%;
+    }
+    .newsletter form {
+        width: 350px;
+    }
+    :root {
+        --big-font: 3.8rem;
+        --h2-font: 1.8rem;
+        transition: 0.2s;
+    }
+    .text {
+        text-align: center;
+    }
+    .home {
+        height: 85vh;
+        transition: 0.2s;
+    }
+
+    .GameInfo {
+        width: 100% !important;
+    }
+}
