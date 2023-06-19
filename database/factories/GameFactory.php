@@ -21,7 +21,7 @@ class GameFactory extends Factory
             'image' => fake()->imageUrl(),
             'description' => fake('ka_GE')->realText(200),
             'download_link' => fake()->url(),
-            'additional_images' => [fake()->imageUrl(),fake()->imageUrl()],
+            'additional_images' => [fake()->imageUrl(),fake()->imageUrl(),fake()->imageUrl],
             'background_image' => fake()->imageUrl(),
         ];
     }
