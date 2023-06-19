@@ -32,7 +32,6 @@
             <p>{{$game->description}}</p>
         </div>
 
-        
         <div class="slideshow-container">   
             @foreach ($game->additional_images as $key=>$image)  
                 @php
