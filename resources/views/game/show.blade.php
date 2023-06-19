@@ -21,8 +21,10 @@
 		<a href="/" class="logo">TacticalGames</a>
 	</header>
 
-	
-	<section style="background-image:url({{$game->image}})" class="card-background">
+	@php
+    $bg= str_starts_with($game->background_image, 'http') ? $game->background_image : asset('storage/' . $game->background_image)
+    @endphp
+	<section style="background-image:url({{$bg}})" class="card-background">
 	</section>
 
 	<div class="wrapper">
@@ -32,8 +34,11 @@
 
         
         <div class="slideshow-container">   
-            @foreach ($game->additional_images as $key=>$image)   
-                <x-slider-card :image="$image" :number="$loop->iteration.' / '.count($game->additional_images)"/>
+            @foreach ($game->additional_images as $key=>$image)  
+                @php
+                $imagePath = str_starts_with($image, 'http') ? $image : asset('storage/' . $image)
+                @endphp
+                <x-slider-card :image="$imagePath" :number="$loop->iteration.' / '.count($game->additional_images)"/>
             @endforeach
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>

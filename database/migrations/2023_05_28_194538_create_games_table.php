@@ -11,6 +11,7 @@ return new class () extends Migration {
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->string('background_image');
             $table->string('description');
             $table->string('download_link');
             $table->json('additional_images')->nullable();

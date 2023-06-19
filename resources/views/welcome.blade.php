@@ -28,12 +28,7 @@
 			<ul class="navbar">
 				<li><a href="#home">მთავარი</a></li>
 				<div class="gamesDropdown">
-					<h3 class="dropdown">თამაშები <i class="lni lni-chevron-down"></i></h3>
-					<ul class="gameslist">
-						<a href="/game/age-of-mythology"><li>Age of Mythology</li></a>
-						<a href="/game/empire-earth"><li>Empire Earth</li></a>
-						<a href="/game/command-and-conquer-generals"><li>C&C Generals</li></a>
-					</ul>
+					<a href="#games">თამაშები </a>			
 				</div>
 				<li><a href="#contact">კონტაქტი</a></li>
 			</ul>
@@ -53,9 +48,18 @@
 			<div class="title">
 				<h2>პოპულარული თამაშები!</h2>
 			</div>
-
-			<div class="games-content">
-				<a href="/game/age-of-mythology">
+			<div class="games-content" id="games">
+				@foreach ($games as $game)
+				<a href="/game/{{$game->id}}">
+					<div class="col-content">
+						@php
+							$image = str_starts_with($game->image, 'http') ? $game->image : asset('storage/' . $game->image)
+						@endphp
+						<img src="{{$image}}"/>
+					</div>
+				 </a>	
+				@endforeach
+				{{-- <a href="/game/age-of-mythology">
 					<div class="col-content">
 						<img src={{asset("images/AoM.jpg")}} />
 					</div>
@@ -71,7 +75,7 @@
 					<div class="col-content">
 						<img src={{asset("images/caq.jpg")}} />
 					</div>
-				</a>
+				</a> --}}
 			</div>
 		</section>
 

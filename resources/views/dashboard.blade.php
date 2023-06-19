@@ -43,14 +43,21 @@
       <th>Upload Date</th>
       <th>Actions</th>
     </tr>
+    @foreach ($games as $game)
     <tr>
-      <td>New Game</td>
-      <td>2023-06-01</td>
+      <td>{{$game->name}}</td>
+      <td>{{$game->updated_at}}</td>
       <td>
         <a href="/admin/edit/3" class="edit-button">Edit</a>
-        <a href="/admin/remove/3" class="remove-button">Remove</a>
+        <form action="/delete-game/{{$game->id}}" method="POST">
+          @csrf
+          @method('delete')
+
+          <button type="submit" class="remove-button">Remove</button>
+        </form>
       </td>
     </tr>
+    @endforeach
   </table>
 </body>
 </html>

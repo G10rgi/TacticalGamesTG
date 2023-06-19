@@ -81,24 +81,31 @@
         </style>
     </head>
 <body>
-<form action="/admin/save" method="POST" enctype="multipart/form-data">
-  
-  <!-- Background Photo -->
+<form action="/add-game" method="POST" enctype="multipart/form-data">
+  @csrf
   <div>
-    <label for="background_photo">უკანა ფონის ფოტო:</label>
-    <input type="file" name="background_photo" id="background_photo" accept="image/*">
+    <label for="image">სახელი:</label>
+    <input type="texr" name="name" id="name">
+  </div>
+  <div>
+    <label for="image">მთავარი ფოტო:</label>
+    <input type="file" name="image" id="background_photo" accept="image/*">
+  </div>
+  <div>
+    <label for="image">უკანა ფონის ფოტო:</label>
+    <input type="file" name="background_image" id="background_photo" accept="image/*">
   </div>
 
   <!-- Game Description -->
   <div>
-    <label for="game_description">თამაშის აღწერა:</label>
-    <textarea name="game_description" id="game_description"></textarea>
+    <label for="description">თამაშის აღწერა:</label>
+    <textarea name="description" id="game_description"></textarea>
   </div>
 
   <!-- Slider Images -->
   <div>
     <label for="slider_images">სლაიდერის ფოტოები:</label>
-    <input type="file" name="slider_images[]" id="slider_images" multiple accept="image/*">
+    <input type="file" name="additional_images[]" id="slider_images" multiple accept="image/*">
   </div>
 
   <!-- Computer Requirements -->
@@ -134,8 +141,6 @@
   </div>
 
 </form>
-
-    <input type="file" accept=".jpg, .png, .webp" />
 
 </body>
 </html>

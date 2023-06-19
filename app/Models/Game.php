@@ -10,6 +10,10 @@ class Game extends Model
     use HasFactory;
     protected $guarded = [];
 
+    protected $casts = [
+        'additional_images' => 'array'
+    ];
+    
     public function requirements()
     {
         return $this->hasOne(Requirements::class);
