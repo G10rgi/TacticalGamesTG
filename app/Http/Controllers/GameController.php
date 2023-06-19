@@ -26,6 +26,41 @@ class GameController extends Controller
         return redirect()->back();
     }
 
+    public function edit($id){
+        $game = Game::find($id);
+        return view('game.edit',with(['game'=>$game]));
+    }
+
+    public function update(Request $request,$id){
+        $game = Game::find($id);
+        if($request->file('additional_images')){
+            Storage::deleteDirectory($game->name.'/additional_images');
+            $paths=[];
+            foreach($request->file('additional_images') as $image){
+                $path= $image->store($game->name.'/additional_images');
+                array_push($paths,$path);
+            }
+            $game->update(['additional_images'=>$paths]);
+        }
+        if($request->file('image')){
+            Storage::deleteDirectory($game->name.'/poster');
+            $imagePath= $request->file('image')->store($game->name.'/poster');
+            $game->image = $imagePath;
+            $game->save();
+        }
+        if($request->file('background_image')){
+            Storage::deleteDirectory($game->name.'/background_image');
+            $imagePath= $request->file('background_image')->store($game->name.'/background_image');
+            $game->background_image= $imagePath;
+            $game->save();
+        }
+        if($game){
+            $game->update($request->except(['os','gpu','cpu','ram','additional_images']));
+            Requirements::find($game->requirements->id)->update($request->only(['os','gpu','cpu','ram']));
+        }
+        return redirect('/');
+    }
+
     public function store(Request $request){
         try{
             function getPaths($images,$name){

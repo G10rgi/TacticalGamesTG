@@ -35,7 +35,11 @@
   </style>
 </head>
 <body>
-  <h1>Game Dashboard</h1>
+  <div style="display:flex; gap: 50px; align-items:center;">
+
+    <h1>Game Dashboard</h1>
+    <a href="/add-game" class="edit-button">თამაშის დამატება</a>
+  </div>
   
   <table>
     <tr>
@@ -48,13 +52,18 @@
       <td>{{$game->name}}</td>
       <td>{{$game->updated_at}}</td>
       <td>
-        <a href="/admin/edit/3" class="edit-button">Edit</a>
-        <form action="/delete-game/{{$game->id}}" method="POST">
-          @csrf
-          @method('delete')
-
-          <button type="submit" class="remove-button">Remove</button>
-        </form>
+        <div style="display:flex; gap: 10px;">
+          <form action="/update-game/{{$game->id}}">
+            @csrf
+            @method('put')
+            <button type="submit" class="edit-button">Edit</button>
+          </form>
+          <form action="/delete-game/{{$game->id}}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="remove-button">Remove</button>
+          </form>
+        </div>
       </td>
     </tr>
     @endforeach
